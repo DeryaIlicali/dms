@@ -73,6 +73,7 @@ public class FileController {
         return ResponseEntity.ok()
                 .body(fileList);
     }
+
     @GetMapping("/{username}/{filename}")
     @ResponseBody
     public ResponseEntity<FileMetadata> getMetadataOfAFile(@PathVariable("username") String username,
@@ -87,8 +88,8 @@ public class FileController {
     @PutMapping("/{username}/{filename}/{fileType}/modify")
     @ResponseBody
     public ResponseEntity<String> modifyType(@PathVariable("username") String username,
-                                   @PathVariable("filename") String filename,
-                                   @PathVariable("fileType") String filetype) {
+                                             @PathVariable("filename") String filename,
+                                             @PathVariable("fileType") String filetype) {
 
         FileMetadata fileMetadata = storageService.modifyMetadataType(username, filename, filetype);
 

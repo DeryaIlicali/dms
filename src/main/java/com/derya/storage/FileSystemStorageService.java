@@ -121,11 +121,11 @@ public class FileSystemStorageService implements StorageService {
     public List<String> listUserFiles(String userName) {
         Path filePath = load(userName);
         File userFolder = filePath.toFile();
-        if(userFolder.isDirectory()) {
-             String[] userDocList = userFolder.list();
-             if(userDocList != null){
-                 return Arrays.asList(userDocList);
-             }
+        if (userFolder.isDirectory()) {
+            String[] userDocList = userFolder.list();
+            if (userDocList != null) {
+                return Arrays.asList(userDocList);
+            }
         }
         throw new StorageException("");
     }
@@ -135,7 +135,7 @@ public class FileSystemStorageService implements StorageService {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 
-    public FileMetadata readMetadata(String username, String filename){
+    public FileMetadata readMetadata(String username, String filename) {
         // creating a object of Path class
         Path filePath = rootLocation.resolve(username).resolve(filename);
         return fileMetadata.get(filePath);
