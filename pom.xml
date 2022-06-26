@@ -27,6 +27,10 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.uploadcare</groupId>
       <artifactId>uploadcare</artifactId>
       <version>3.5.1</version>
@@ -41,6 +45,12 @@
       <groupId>commons-fileupload</groupId>
       <artifactId>commons-fileupload</artifactId>
       <version>1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>5.3.20</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 

@@ -38,10 +38,10 @@ public class FileController {
                 .body(resource);
     }
 
-    @PostMapping(value = "/{username}/{fileType}/upload-file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/{username}/upload-file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
     public FileResponse uploadFile(@PathVariable("username") String userName,
-                                   @PathVariable("fileType") String fileType,
+                                   @RequestParam("fileType") String fileType,
                                    @RequestParam("file") MultipartFile file) {
         String name = storageService.store(file, userName, fileType);
 
@@ -54,7 +54,7 @@ public class FileController {
         return new FileResponse(name, fileType, uri, file.getContentType(), file.getSize());
     }
 
-    @PostMapping(value = "/{username}/{fileType}/upload-multiple-files", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/{username}/upload-multiple-files", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
     public List<FileResponse> uploadMultipleFiles(@PathVariable("username") String userName,
                                                   @PathVariable("fileType") String fileType,
@@ -66,7 +66,7 @@ public class FileController {
 
     @GetMapping("/{username}/list-all")
     @ResponseBody
-    public ResponseEntity<List<String>> listAllAttachedFiles(@PathVariable("username") String username) {
+    public ResponseEntity<List<String>> listAllFilesOfAUser(@PathVariable("username") String username) {
 
         List<String> fileList = storageService.listUserFiles(username);
 
