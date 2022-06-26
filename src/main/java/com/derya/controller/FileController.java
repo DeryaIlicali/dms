@@ -57,7 +57,7 @@ public class FileController {
     @PostMapping(value = "/{username}/upload-multiple-files", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
     public List<FileResponse> uploadMultipleFiles(@PathVariable("username") String userName,
-                                                  @PathVariable("fileType") String fileType,
+                                                  @RequestParam("fileType") String fileType,
                                                   @RequestParam("files") MultipartFile[] files) {
         return Arrays.stream(files)
                 .map(file -> uploadFile(userName, fileType, file))
