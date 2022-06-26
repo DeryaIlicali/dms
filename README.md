@@ -31,6 +31,6 @@ To modify the type of the uploaded file:
         
         
         
-The system does not persist data. HashMap is used to keep the data, so when the application restarts, the data will be lost. The test cases can be found under the test directory. 
+The system does not persist data. HashMap is used to keep the data, so when the application restarts, the metadata will be lost. The test cases can be found under the test directory. 
 Because of the time limitation, only happy cases are added.
 
